@@ -40,7 +40,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Apply patches
         if: inputs.flavor != ''
         run: |
@@ -58,8 +58,8 @@ jobs:
       - name: Run e2e tests
         env:
           TEST_SNAP: ${{ steps.download-snap.outputs.snap-path }}
-          TEST_SUBSTRATE: lxd
-          TEST_LXD_IMAGE: ${{ inputs.os }}
+          TEST_SUBSTRATE: multipass
+          TEST_MULTIPASS_IMAGE: ${{ inputs.os }}
           TEST_FLAVOR: ${{ inputs.flavor }}
           TEST_INSPECTION_REPORTS_DIR: ${{ github.workspace }}/inspection-reports
           # Test the latest (up to) 6 releases for the flavour
